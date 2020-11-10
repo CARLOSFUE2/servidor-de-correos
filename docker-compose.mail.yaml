@@ -4,8 +4,8 @@ services:
     image: analogic/poste.io
     restart: always
     ports:
-      - "8080:8080"
-      - "4433:4433"
+      - "8080:80"
+      - "4433:443"
       - "25:25"
       - "110:110"
       - "143:143"
@@ -16,6 +16,5 @@ services:
     volumes:
       - /mnt/mail:/data
     environment:
-      - HTTPS=OFF
+      - HTTPS=ON
       - DISABLE_CLAMAV=TRUE
-      - VIRTUAL_HOST=mail.devsign.org
