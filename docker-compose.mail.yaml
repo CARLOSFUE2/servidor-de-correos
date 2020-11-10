@@ -3,20 +3,19 @@ services:
   poste:
     image: analogic/poste.io
     restart: always
-    expose:
-      - 25
-      - 8080
-      - 4433
-      - 110
-      - 143
-      - 465
-      - 587
-      - 993
-      - 995
+    ports:
+      - "8080:8080"
+      - "4433:4433"
+      - "25:25"
+      - "110:110"
+      - "143:143"
+      - "465:465"
+      - "587:587"
+      - "993:993"
+      - "995:995"
     volumes:
       - /mnt/mail:/data
     environment:
-      - HTTPS=ON
+      - HTTPS=OFF
       - DISABLE_CLAMAV=TRUE
-      - HTTP_PORT=8080
-      - HTTPS_PORT=4433
+      - VIRTUAL_HOST=mail.devsign.org
