@@ -3,11 +3,10 @@ services:
   poste:
     image: analogic/poste.io
     restart: always
-    network_mode: "host"
     expose:
       - 25
-      - 80
-      - 443
+      - 8080
+      - 4433
       - 110
       - 143
       - 465
@@ -19,3 +18,5 @@ services:
     environment:
       - HTTPS=ON
       - DISABLE_CLAMAV=TRUE
+      - HTTP_PORT=8080
+      - HTTPS_PORT=4433
